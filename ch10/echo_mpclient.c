@@ -57,13 +57,12 @@ void read_routine(int sock, char* buf) {
 			return;
 
 		buf[str_len] = 0;
-		printf("Message from server : %s \n", buf);
+		printf("Message from server : %s", buf);
 	}
 }
 
 void write_routine(int sock, char* buf) {
 	while(1) {
-		fputs("Input message(q or Q to quit) : ", stdout);
 		fgets(buf, BUF_SIZE, stdin);
 		if(!strcmp(buf, "q\n") || !strcmp(buf, "Q\n")) {
 			shutdown(sock, SHUT_WR);
